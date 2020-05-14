@@ -5,5 +5,8 @@
 #from datacamppandas import *
 #from mathesisfor import *
 #from mathesislists import *
-from mathesistest2 import *
-from mathesisdatechoices import *
+#from mathesistest2 import *
+#from mathesisdatechoices import *
+#from mathesisfunctions import *
+from mathesistest3 import *
+ 
