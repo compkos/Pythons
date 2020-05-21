@@ -15,12 +15,9 @@
 #from datagyautomateexcel import *
 #from os import system
 #system('pip install pyodbc')
-import mathesisabs
+#import mathesisabs
+#import datacampfunctions
+import datacampiteral
 
-while True :
-    n = input('δώσε αριθμό:')
-    if n == '' : break
-    else :
-      n =mathesisabs.abs(n)
-      if n:print("η απόλυτη τιμή του είναι {}".format(n))
-      else: print("δεν είναι αριθμός!!!")
+
+
