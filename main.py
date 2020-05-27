@@ -18,7 +18,7 @@
 #import mathesisabs
 #import datacampfunctions
 #import datacampiteral
-import datacamppandas
-
+#import datacamppandas
+import mathesisos
 
 
