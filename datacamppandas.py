@@ -386,3 +386,72 @@ print(sales.pivot_table(values="weekly_sales"
 
 # Print the mean weekly_sales by department and type; fill missing values with 0s; sum all rows and cols
 print(sales.pivot_table(values="weekly_sales", index="department", columns="type", fill_value=0, margins=True))
+
+temp_list=[
+['2000-01-01'  ,'Abidjan'  ,'Cote D''Ivoire'      ,27.293],
+['2000-02-01'  ,'Abidjan'  ,'Cote D''Ivoire'      ,27.685],
+['2000-03-01'  ,'Abidjan'  ,'Cote D''Ivoire'      ,29.061],
+['2000-04-01'  ,'Abidjan'  ,'Cote D''Ivoire'      ,28.162],
+['2000-05-01'  ,'Abidjan'  ,'Cote D''Ivoire'      ,27.547],
+['2013-05-01'  ,   'Xian'          ,'China'      ,18.979],
+['2013-06-01'  ,   'Xian'          ,'China'      ,23.522],
+['2013-07-01'  ,   'Xian'          ,'China'      ,25.251],
+['2013-08-01'  ,   'Xian'          ,'China'      ,24.528],
+['2013-09-01'  ,   'Xian'          ,'China'      ,     0]]
+
+temperatures=pd.DataFrame(temp_list)
+temperatures.columns = ['date','city','country','avg_temp_c']
+
+# Look at temperatures
+print(temperatures)
+
+# Index temperatures by city
+temperatures_ind = temperatures.set_index("city")
+
+# Look at temperatures_ind
+print(temperatures_ind)
+
+# Reset the index, keeping its contents
+print(temperatures_ind.reset_index())
+
+# Reset the index, dropping its contents
+print(temperatures_ind.reset_index(drop=True))
+
+# Make a list of cities to subset on
+cities = ["Xian", "Abidjan"]
+
+# Subset temperatures using square brackets
+print(temperatures[temperatures["city"].isin(cities)])
+
+# Subset temperatures_ind using .loc[]
+print(temperatures_ind.loc[cities])
+
+# Sort temperatures_ind by index values
+print(temperatures_ind.sort_index())
+
+# Sort temperatures_ind by index values at the city level
+print(temperatures_ind.sort_index(level=['city']))
+
+# Sort temperatures_ind by country then descending city
+print(temperatures_ind.sort_index(level=['country','city'],ascending=[True,False]))
+
+# Sort the index of temperatures_ind
+temperatures_srt = temperatures_ind.sort_index()
+
+# Subset rows from Pakistan to Russia
+print(temperatures_srt.loc['Pakistan':'Russia'])
+
+# Try to subset rows from Lahore to Moscow
+print(temperatures_srt.loc['Lahore':'Moscow'])
+
+# Subset rows from Pakistan, Lahore to Russia, Moscow
+print(temperatures_srt.loc[('Pakistan','Lahore'):('Russia','Moscow')])
+
+# Subset rows from India, Hyderabad to Iraq, Baghdad
+print(temperatures_srt.loc[('India', 'Hyderabad' ):('Iraq','Baghdad')])
+
+# Subset columns from date to avg_temp_c
+print(temperatures_srt.loc[:,"date":"avg_temp_c"])
+
+# Subset in both directions at once
+print(temperatures_srt.loc[('India', 'Hyderabad' ):('Iraq','Baghdad'),"date":"avg_temp_c"])
