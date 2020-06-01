@@ -387,6 +387,31 @@ print(sales.pivot_table(values="weekly_sales"
 # Print the mean weekly_sales by department and type; fill missing values with 0s; sum all rows and cols
 print(sales.pivot_table(values="weekly_sales", index="department", columns="type", fill_value=0, margins=True))
 
+
+# Create the list of DataFrames: medal_list
+names = ['United States', 'Soviet Union', 'United Kingdom', 'France ', 'Germany']
+bronzemet = [1052.0, 584.0, 505.0, 475.0, 454.0]
+my_dict={'Country':names,'Total':bronzemet}
+bronze1=pd.DataFrame(my_dict)
+bronse2=bronze1.pivot_table(values="Total"
+, index="Country")
+print(bronse2)
+silvermet = [1195.0, 627.0, 591.0, 461.0, 394.0]
+my_dict={'Country':names,'Total':silvermet}
+silver1=pd.DataFrame(my_dict)
+silver2=silver1.pivot_table(values="Total"
+, index="Country")
+print(silver2)
+goldmet = [2088.0, 838.0, 498.0, 460.0, 407.0]
+my_dict={'Country':names,'Total':goldmet}
+gold1=pd.DataFrame(my_dict)
+gold2=gold1.pivot_table(values="Total"
+, index="Country")
+print(gold2)
+
+
+
+
 temp_list=[
 ['2000-01-01'  ,'Abidjan'  ,'Cote D''Ivoire'      ,27.293],
 ['2000-02-01'  ,'Abidjan'  ,'Cote D''Ivoire'      ,27.685],
