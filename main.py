@@ -20,5 +20,6 @@
 #import datacampiteral
 #import datacamppandas
 #import mathesisos
-import excelpython
+#import pandasplot
+import mathesisregularexp
 
