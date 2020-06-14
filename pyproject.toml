@@ -16,4 +16,6 @@ pandas = "^1.0"
 python = "^3.8"
 seaborn = "^0.10.1"
 xlrd = "^1.2"
+bs4 = "^0.0.1"
+tweepy = "^3.8"
 [tool.poetry.dev-dependencies]
